@@ -1,0 +1,32 @@
+Tamaño del array: 50000000
+
+- Función personalizada: Lenta debido a que es secuencial y no aprovecha optimizaciones.
+Time taken by reduction operation using a function: 44.8 s ± 12.6 ms per loop (mean ± std. dev. of 2 runs, 1 loop each)
+And the result of the sum of numbers in the range [0, value) is: 25000554.280705426
+
+Time taken by reduction operation using numpy.sum(): 60.1 ms ± 116 µs per loop (mean ± std. dev. of 2 runs, 10 loops each)
+Now, the result using numpy.sum(): 25000554.28070188 
+ 
+Time taken by reduction operation using numpy.ndarray.sum(): 61 ms ± 834 µs per loop (mean ± std. dev. of 2 runs, 10 loops each)
+Now, the result using numpy.ndarray.sum(): 25000554.28070188
+
+- NumPy (sum y ndarray.sum): Muy rápido gracias a su código optimizado y vectorización.
+- Multiprocessing: Reduce el tiempo al aumentar los procesos porque divide el trabajo entre núcleos, pero tiene algo de sobrecarga.
+Time with 1 processes: 47.5 s ± 1.12 s per loop (mean ± std. dev. of 2 runs, 1 loop each)
+Sum result with 1 processes: 24998440.938815016
+
+Time with 2 processes: 25.8 s ± 137 ms per loop (mean ± std. dev. of 2 runs, 1 loop each)
+Sum result with 2 processes: 24998440.938814864
+
+Time with 4 processes: 13.3 s ± 14.8 ms per loop (mean ± std. dev. of 2 runs, 1 loop each)
+Sum result with 4 processes: 24998440.938818477
+
+
+- Numba (secuencial y paralelo): Excelente rendimiento. El modo paralelo es el más rápido al aprovechar múltiples núcleos y optimización a nivel de bucles.
+
+Time taken by Numba (sequential): 196 ms ± 457 µs per loop (mean ± std. dev. of 2 runs, 1 loop each)
+Result: 24998440.938815016 
+
+Time taken by Numba (parallel): 18.9 ms ± 6.55 ms per loop (mean ± std. dev. of 2 runs, 1 loop each)
+Result: 24998440.938817307 
+
